@@ -111,11 +111,7 @@
 
       <div class="flex justify-between items-center">
         <span>Expected amount received</span>
-        <input
-          class="border rounded px-3 py-1 w-40 text-right"
-          [value]="amount - amount * 0.003"
-          disabled
-        />
+        <input class="border rounded px-3 py-1 w-40 text-right" [value]="amount" disabled />
       </div>
     </div>
 
@@ -158,14 +154,14 @@
     </div>
 
     <!-- Payee -->
-    <div class="mb-3">
+    <!-- <div class="mb-3">
       <label class="text-sm text-gray-600">Payee</label>
       <input
         class="w-full border rounded p-2 mt-1 bg-gray-100"
         [value]="preview.payee_name"
         readonly
       />
-    </div>
+    </div> -->
 
     <!-- Network -->
     <div class="mb-3">

@@ -6,19 +6,38 @@
     "select_language": "选择语言"
   },
   "hero": {
-    "badge": "企业级 Visa 卡",
-    "title_line_1": "专为全球广告支出",
-    "title_line_2": "打造的虚拟卡",
-    "description_prefix": "专为广告主、代理商和快速增长团队打造，提供",
-    "zero_fee": "0 开卡费用",
-    "description_suffix": "、高额返现、即时虚拟卡创建、灵活支出控制和稳定的支付表现。",
-    "sub_description": "支持 Facebook、TikTok、Google 以及跨境业务支付，提供安全基础设施、快速充值和可扩展的卡片管理。",
-    "issue_card": "开通卡片",
-    "cards": {
-      "tiktok": "TikTok 广告",
-      "google": "Google 广告",
-      "facebook": "Facebook 广告"
-    }
+    "badge": "全球支付基础设施",
+    "title_part_1": "企业级虚拟卡",
+    "title_highlight": "基础设施",
+    "title_part_2": "用于全球支付",
+    "description_prefix": "VCC 为以下场景提供安全、可扩展的虚拟卡发行与支付管理：",
+    "payment_use_cases": "广告投放、云服务、AI 工具、订阅服务和跨境采购",
+    "description_suffix": "——专为现代全球企业的运营需求而设计。",
+    "features": {
+      "instant_card": "即时发卡",
+      "multi_currency": "多币种结算",
+      "api_first": "API 优先集成",
+      "risk_control": "实时风险控制"
+    },
+    "dashboard": {
+      "label": "支付仪表盘",
+      "title": "VCC 运营",
+      "live": "实时",
+      "cards_issued": "已发行卡片",
+      "global_coverage": "全球覆盖",
+      "countries": "个国家/地区",
+      "api_uptime": "API 正常运行率",
+      "risk_alerts": "风险提醒",
+      "real_time": "实时",
+      "settlement": "结算",
+      "multi_fx": "多币种兑换",
+      "top_spending_platforms": "主要消费平台",
+      "all_active": "全部正常",
+      "facebook_ads": "Facebook 广告",
+      "tiktok_ads": "TikTok 广告",
+      "google_ads": "Google 广告"
+    },
+    "primary_cta": "开通卡片"
   },
   "about": {
     "badge": "关于",
@@ -254,5 +273,30 @@
     "changePassword": "修改密码",
     "changePasswordDescription": "更新您的账户密码",
     "logout": "退出登录"
+  },
+  "payment_scenarios": {
+    "badge": "支付场景",
+    "title_part_1": "一个平台。",
+    "title_highlight": "覆盖每一种使用场景。",
+    "description": "VCC 虚拟卡专为企业每天遇到的各种支付场景而设计。",
+    "card": {
+      "title": "数字广告",
+      "subtitle": "跨平台广告预算管理",
+      "description": "为每个广告平台或广告活动维护独立的虚拟卡。设置各平台预算，实时监控支出，并消除多个账户共用同一张卡带来的风险。"
+    },
+    "tags": {
+      "google_ads": "Google 广告",
+      "meta_ads": "Facebook 广告",
+      "x_ads": "X 广告",
+      "tiktok_ads": "TikTok 广告",
+      "linkedin_ads": "LinkedIn 广告"
+    },
+    "features": {
+      "dedicated_cards": "每个广告账户使用独立卡片",
+      "budget_limits": "自动化预算限制",
+      "spend_visibility": "跨平台支出可视化",
+      "instant_topup": "通过 API 或仪表盘即时充值"
+    },
+    "cta": "了解更多"
   }
 }
