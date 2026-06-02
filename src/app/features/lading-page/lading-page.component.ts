@@ -10,6 +10,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AboutWalletComponent } from './components/about-wallet/about-wallet.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { TranslatePipe } from '@ngx-translate/core';
+import { PaymentScenariosComponent } from './components/payment-scenarios/payment-scenarios.component';
 
 type LandingSection = 'about' | 'features' | 'pricing';
 
@@ -26,6 +27,7 @@ type LandingSection = 'about' | 'features' | 'pricing';
     AboutWalletComponent,
     FooterComponent,
     TranslatePipe,
+    PaymentScenariosComponent,
   ],
   templateUrl: './landing-page.componet.html',
   styleUrl: './landing-page.component.scss',

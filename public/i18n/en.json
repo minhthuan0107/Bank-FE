@@ -6,19 +6,38 @@
     "select_language": "Select language"
   },
   "hero": {
-    "badge": "Enterprise-Grade Visa Cards",
-    "title_line_1": "Cards Built For",
-    "title_line_2": "Global Ad Spend",
-    "description_prefix": "Built for advertisers, agencies, and scaling teams with",
-    "zero_fee": "0 issuance fees",
-    "description_suffix": ", high cashback, instant virtual card creation, flexible spend control, and stable payment performance.",
-    "sub_description": "Support Facebook, TikTok, Google, and cross-border business payments with secure infrastructure, fast top-up, and scalable card management.",
-    "issue_card": "Issue Card",
-    "cards": {
-      "tiktok": "TikTok Ads",
-      "google": "Google Ads",
-      "facebook": "Facebook Ads"
-    }
+    "badge": "Global Payment Infrastructure",
+    "title_part_1": "Enterprise Virtual Card",
+    "title_highlight": "Infrastructure",
+    "title_part_2": "for Global Payments",
+    "description_prefix": "VCC provides secure, scalable virtual card issuing and payment management for",
+    "payment_use_cases": "advertising, cloud services, AI tools, subscriptions, and cross-border procurement",
+    "description_suffix": "—designed for the operational demands of modern global businesses.",
+    "features": {
+      "instant_card": "Instant Card Issuing",
+      "multi_currency": "Multi-Currency Settlement",
+      "api_first": "API-First Integration",
+      "risk_control": "Real-Time Risk Control"
+    },
+    "dashboard": {
+      "label": "Payment Dashboard",
+      "title": "VCC Operations",
+      "live": "Live",
+      "cards_issued": "Cards Issued",
+      "global_coverage": "Global Coverage",
+      "countries": "countries",
+      "api_uptime": "API Uptime",
+      "risk_alerts": "Risk Alerts",
+      "real_time": "Real-Time",
+      "settlement": "Settlement",
+      "multi_fx": "Multi-FX",
+      "top_spending_platforms": "Top Spending Platforms",
+      "all_active": "All Active",
+      "facebook_ads": "Facebook Ads",
+      "tiktok_ads": "TikTok Ads",
+      "google_ads": "Google Ads"
+    },
+    "primary_cta": "Issue Card"
   },
   "about": {
     "badge": "About",
@@ -254,5 +273,30 @@
     "changePassword": "Change password",
     "changePasswordDescription": "Update your account password",
     "logout": "Logout"
+  },
+  "payment_scenarios": {
+    "badge": "Payment Scenarios",
+    "title_part_1": "One Platform.",
+    "title_highlight": "Every Use Case.",
+    "description": "VCC virtual cards are purpose-built for the payment scenarios your business encounters every day.",
+    "card": {
+      "title": "Digital Advertising",
+      "subtitle": "Ad budget management across platforms",
+      "description": "Maintain separate virtual cards for each advertising platform or campaign. Enforce per-platform budgets, monitor spend in real time, and eliminate shared card risks across accounts."
+    },
+    "tags": {
+      "google_ads": "Google Ads",
+      "meta_ads": "Facebook Ads",
+      "x_ads": "X Ads",
+      "tiktok_ads": "TikTok Ads",
+      "linkedin_ads": "LinkedIn Ads"
+    },
+    "features": {
+      "dedicated_cards": "Dedicated cards per ad account",
+      "budget_limits": "Automated budget limits",
+      "spend_visibility": "Cross-platform spend visibility",
+      "instant_topup": "Instant top-up via API or dashboard"
+    },
+    "cta": "Learn More"
   }
 }

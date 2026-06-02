@@ -161,7 +161,8 @@
       </div>
     </div>
   </section>
-  <app-ads-card-component> </app-ads-card-component>
+
+  <app-payment-scenarios></app-payment-scenarios>
 
   <!-- SECTION 3 - LOW FEES -->
   <app-low-fees-section></app-low-fees-section>
@@ -186,7 +187,11 @@
           class="reveal reveal-up delay-2 text-4xl md:text-5xl font-bold text-gray-950 leading-tight"
         >
           {{ 'scale_tools.title_line_1' | translate }}
-          <span class="block text-red-600"> {{ 'scale_tools.title_line_2' | translate }}</span>
+          <span
+            class="block bg-gradient-to-r from-red-500 via-rose-500 to-pink-500 bg-clip-text text-transparent"
+          >
+            {{ 'scale_tools.title_line_2' | translate }}</span
+          >
         </h2>
 
         <p class="reveal reveal-up delay-3 mt-5 text-gray-600 text-base md:text-lg">
@@ -347,7 +352,9 @@
       <!-- Title -->
       <h2 class="text-4xl font-bold tracking-tight text-gray-900 md:text-6xl">
         {{ 'final_cta.title_start' | translate }}
-        <span class="bg-gradient-to-r from-red-600 to-rose-500 bg-clip-text text-transparent">
+        <span
+          class="bg-gradient-to-r from-red-500 via-rose-500 to-pink-500 bg-clip-text text-transparent"
+        >
           {{ 'final_cta.title_highlight' | translate }}
         </span>
         {{ 'final_cta.title_end' | translate }}

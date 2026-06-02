@@ -29,10 +29,10 @@
     </div>
 
     <!-- Title -->
-    <h2 class="text-center text-xl font-semibold text-gray-900 mb-1">Xác minh OTP</h2>
+    <h2 class="text-center text-xl font-semibold text-gray-900 mb-1">Verify OTP</h2>
     <p class="text-center text-sm text-gray-500 mb-7">
-      Nhập mã <span class="font-medium text-gray-700">{{ length }} chữ số</span> được gửi đến số của
-      bạn
+      Enter the <span class="font-medium text-gray-700">{{ length }}-digit code</span> sent to your
+      email
     </p>
 
     <!-- OTP Inputs -->
@@ -66,22 +66,22 @@
         (click)="onCancel()"
         class="flex-1 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-600 hover:bg-gray-50 transition-colors duration-150"
       >
-        Huỷ
+        Cancel
       </button>
       <button
         (click)="onConfirmClick()"
         [disabled]="!isComplete"
         class="flex-[2] py-2.5 rounded-xl text-sm font-medium transition-all duration-150 bg-indigo-600 text-white hover:bg-indigo-700 active:scale-95 disabled:opacity-30 disabled:cursor-not-allowed disabled:active:scale-100"
       >
-        Xác nhận
+        Confirm
       </button>
     </div>
 
     <!-- Resend -->
     <p class="text-center text-xs text-gray-400 mt-4">
-      Không nhận được mã?
+      Didn’t receive the code?
       <button (click)="onResend()" class="text-indigo-600 font-medium hover:underline ml-1">
-        Gửi lại
+        Resend
       </button>
     </p>
 
