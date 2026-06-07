@@ -1,0 +1,159 @@
+<section class="relative min-h-screen w-full overflow-hidden bg-white px-6 py-24">
+  <!-- soft background -->
+  <div class="pointer-events-none absolute inset-0">
+    <div class="absolute inset-0 bg-gradient-to-b from-white via-rose-50/50 to-white"></div>
+
+    <!-- grid pattern -->
+    <div
+      class="absolute inset-0 opacity-[0.35] bg-[linear-gradient(to_right,rgba(244,63,94,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(244,63,94,0.08)_1px,transparent_1px)] bg-[size:48px_48px]"
+    ></div>
+
+    <!-- soft blobs -->
+    <div
+      class="absolute -top-32 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-rose-200/50 blur-3xl"
+    ></div>
+
+    <div class="absolute bottom-16 left-10 h-72 w-72 rounded-full bg-red-200/40 blur-3xl"></div>
+
+    <div class="absolute bottom-16 right-10 h-72 w-72 rounded-full bg-pink-200/40 blur-3xl"></div>
+  </div>
+
+  <!-- decorative orbit -->
+  <div class="pointer-events-none absolute left-1/2 top-20 h-[520px] w-[520px] -translate-x-1/2">
+    <div class="absolute inset-0 rounded-full border border-rose-200/60"></div>
+    <div class="absolute inset-12 rounded-full border border-red-100/80"></div>
+
+    <div
+      class="absolute left-10 top-28 flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-rose-500 shadow-xl shadow-rose-100"
+    >
+      <i class="fa-solid fa-credit-card"></i>
+    </div>
+
+    <div
+      class="absolute right-8 top-52 flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-red-500 shadow-xl shadow-red-100"
+    >
+      <i class="fa-solid fa-bolt"></i>
+    </div>
+
+    <div
+      class="absolute bottom-16 left-1/2 flex h-12 w-12 -translate-x-1/2 items-center justify-center rounded-2xl bg-white text-pink-500 shadow-xl shadow-pink-100"
+    >
+      <i class="fa-solid fa-shield-halved"></i>
+    </div>
+  </div>
+
+  <!-- floating cards -->
+  <div
+    class="pointer-events-none absolute left-[2%] top-[38%] hidden rotate-[-8deg] rounded-3xl border border-rose-100 bg-white/80 p-5 shadow-2xl shadow-rose-100/80 backdrop-blur-xl lg:block"
+  >
+    <div class="flex items-center gap-3">
+      <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-rose-100 text-rose-500">
+        <i class="fa-solid fa-wallet"></i>
+      </div>
+
+      <div>
+        <p class="text-xs font-bold uppercase tracking-wider text-slate-400">Daily Limit</p>
+        <p class="text-lg font-black text-slate-900">$5,000</p>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="pointer-events-none absolute right-[2%] top-[38%] hidden rotate-[7deg] rounded-3xl border border-rose-100 bg-white/80 p-5 shadow-2xl shadow-rose-100/80 backdrop-blur-xl lg:block"
+  >
+    <div class="flex items-center gap-3">
+      <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-red-100 text-red-500">
+        <i class="fa-solid fa-check"></i>
+      </div>
+
+      <div>
+        <p class="text-xs font-bold uppercase tracking-wider text-slate-400">Card Status</p>
+        <p class="text-lg font-black text-slate-900">Ready</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- content -->
+  <div class="relative z-10 mx-auto max-w-5xl text-center">
+    <div
+      class="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-rose-100 bg-white/80 px-4 py-2 text-xs font-black uppercase tracking-wide text-rose-500 shadow-lg shadow-rose-100/70 backdrop-blur"
+    >
+      <span class="h-2 w-2 rounded-full bg-rose-500"></span>
+      Virtual Card Infrastructure
+    </div>
+
+    <h2
+      class="mx-auto max-w-[1080px] text-center text-4xl font-black leading-[1.05] tracking-tight text-slate-800 md:text-[56px] lg:text-[58px]"
+    >
+      <span class="block"> Take Advantage of Fast Registration </span>
+
+      <span class="block">
+        and
+        <span
+          class="bg-gradient-to-r from-red-500 via-rose-500 to-pink-500 bg-clip-text text-transparent"
+        >
+          Smooth Online Transactions
+        </span>
+      </span>
+
+      <span class="block"> with Finup </span>
+    </h2>
+
+    <div class="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
+      <div class="flex items-center gap-3 text-sm font-bold text-slate-500 md:text-base">
+        <i class="fa-solid fa-check text-rose-500"></i>
+        <span>Create a card in 60 seconds</span>
+      </div>
+
+      <div class="flex items-center gap-3 text-sm font-bold text-slate-500 md:text-base">
+        <i class="fa-solid fa-check text-rose-500"></i>
+        <span>Forget about spending limitations</span>
+      </div>
+
+      <div class="flex items-center gap-3 text-sm font-bold text-slate-500 md:text-base">
+        <i class="fa-solid fa-check text-rose-500"></i>
+        <span>Receive 24/7 support</span>
+      </div>
+    </div>
+
+    <!-- mini stats -->
+    <div class="mx-auto mt-12 grid max-w-3xl gap-4 sm:grid-cols-3">
+      <div
+        class="rounded-3xl border border-rose-100 bg-white/80 p-5 shadow-xl shadow-rose-100/70 backdrop-blur"
+      >
+        <p class="text-3xl font-black text-slate-950">60s</p>
+        <p class="mt-1 text-sm font-bold text-slate-400">Card issuing</p>
+      </div>
+
+      <div
+        class="rounded-3xl border border-rose-100 bg-white/80 p-5 shadow-xl shadow-rose-100/70 backdrop-blur"
+      >
+        <p class="text-3xl font-black text-slate-950">24/7</p>
+        <p class="mt-1 text-sm font-bold text-slate-400">Support</p>
+      </div>
+
+      <div
+        class="rounded-3xl border border-rose-100 bg-white/80 p-5 shadow-xl shadow-rose-100/70 backdrop-blur"
+      >
+        <p class="text-3xl font-black text-slate-950">API</p>
+        <p class="mt-1 text-sm font-bold text-slate-400">Ready</p>
+      </div>
+    </div>
+
+    <!-- button -->
+    <div class="mt-14 flex justify-center">
+      <button
+        (click)="navigateService.navigateToUserAuth()"
+        class="group hero-item flex items-center gap-5 rounded-full bg-gradient-to-r from-red-500 via-rose-500 to-pink-500 px-6 py-2.5 font-bold text-white shadow-lg shadow-red-900/20 transition-all duration-300 hover:-translate-y-0.5 hover:from-red-600 hover:via-rose-600 hover:to-pink-600 hover:shadow-red-900/30 active:translate-y-0 md:gap-8 md:px-7"
+      >
+        <span>Open a card</span>
+
+        <span
+          class="flex h-10 w-10 items-center justify-center rounded-full bg-red-600 transition-all duration-300 group-hover:bg-red-400 md:h-11 md:w-11"
+        >
+          <i class="fa-solid fa-arrow-right text-base md:text-lg"></i>
+        </span>
+      </button>
+    </div>
+  </div>
+</section>

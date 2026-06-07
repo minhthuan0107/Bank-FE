@@ -2,12 +2,43 @@ import { Routes } from '@angular/router';
 import { MainLayout } from './layouts/main-layout/main-layout.component';
 import { authGuard } from './guards/auth.guard';
 import { adminAuthGuard } from './guards/admin-auth.guardd';
+import { LandingLayoutComponent } from './features/lading-page/layouts/landing-layout.component';
 
 export const routes: Routes = [
   {
     path: '',
-    loadComponent: () =>
-      import('./features/lading-page/lading-page.component').then((m) => m.LandingPageComponent),
+    component: LandingLayoutComponent,
+
+    children: [
+      {
+        path: '',
+        loadComponent: () =>
+          import('./features/lading-page/lading-page.component').then(
+            (m) => m.LandingPageComponent,
+          ),
+      },
+      {
+        path: 'solutions/facebook-ads-vcc',
+        loadComponent: () =>
+          import('./features/lading-page/pages/facebook-ads-campain/facebook-ads.component').then(
+            (m) => m.FacebookAdsComponent,
+          ),
+      },
+      {
+        path: 'solutions/google-ads-vcc',
+        loadComponent: () =>
+          import('./features/lading-page/pages/google-ads-campain/google-ads.component').then(
+            (m) => m.GoogleAdsComponent,
+          ),
+      },
+      {
+        path: 'solutions/tiktok-ads-vcc',
+        loadComponent: () =>
+          import('./features/lading-page/pages/tiktok-ads-campain/tiktok-ads.component').then(
+            (m) => m.TiktokAdsComponent,
+          ),
+      },
+    ],
   },
   {
     path: '',

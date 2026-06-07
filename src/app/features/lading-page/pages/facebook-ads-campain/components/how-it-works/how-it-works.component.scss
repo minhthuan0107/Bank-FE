@@ -1,0 +1,14 @@
+:host {
+  display: block;
+}
+
+.step-card {
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    border-radius: 2rem;
+    background: linear-gradient(180deg, rgba(244, 63, 94, 0.08), rgba(255, 255, 255, 0));
+    pointer-events: none;
+  }
+}
