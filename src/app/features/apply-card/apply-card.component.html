@@ -64,9 +64,12 @@
 
   <!-- PURPOSE -->
   <div class="w-full shrink-0 rounded-xl bg-white border border-gray-200 flex flex-col">
-    <div class="px-5 py-4 border-b border-gray-200 font-bold text-gray-700">
+    <h2
+      class="px-5 py-4 border-b border-gray-200 flex items-center gap-3 text-base font-bold text-gray-900"
+    >
+      <span class="w-1 h-5 rounded-full bg-red-600"></span>
       Choose your purpose and deck
-    </div>
+    </h2>
 
     <div class="px-5 py-6 flex flex-col gap-3">
       <div
@@ -96,14 +99,17 @@
 
   <!-- COSTS -->
   <div class="w-full shrink-0 rounded-xl bg-white border border-gray-200 flex flex-col">
-    <div class="px-5 py-4 border-b border-gray-200 font-semibold text-gray-700">
+    <h2
+      class="px-5 py-4 border-b border-gray-200 flex items-center gap-3 text-base font-bold text-gray-900"
+    >
+      <span class="w-1 h-5 rounded-full bg-red-600"></span>
       Costs and Quantities
-    </div>
+    </h2>
 
     <div class="px-5 py-6 flex flex-col gap-5 text-[0.85rem]">
       <div class="flex items-center gap-x-10 gap-y-3 flex-wrap">
         <div class="flex items-center gap-4">
-          <span class="text-gray-600">Recharge amount</span>
+          <span class="font-semibold text-gray-700">Recharge amount</span>
 
           <div
             class="flex border rounded-md overflow-hidden"
@@ -116,35 +122,53 @@
               [value]="amount()"
               [disabled]="busy()"
               (input)="amount.set($any($event.target).valueAsNumber || 0)"
-              class="w-24 px-3 py-1 outline-none"
+              class="w-28 px-3 py-1.5 text-base font-semibold text-gray-900 outline-none"
             />
 
-            <div class="px-3 flex items-center border-l border-gray-300 text-gray-500">USD</div>
+            <div
+              class="px-3 flex items-center border-l border-gray-300 bg-gray-50 font-medium text-gray-600"
+            >
+              USD
+            </div>
           </div>
-        </div>
-
-        <div class="flex items-center gap-2 text-gray-600">
-          Creation fee
-          <span class="text-gray-900">{{ config()?.creation_fee ?? 1 | number: '1.2-2' }} USD</span>
-        </div>
-
-        <div class="flex items-center gap-2 text-gray-600">
-          Total
-          <span class="font-semibold text-red-600">{{ total() | number: '1.2-2' }} USD</span>
-        </div>
-
-        <div class="flex items-center gap-2 text-gray-600">
-          Wallet balance
-          <span class="text-gray-900">
-            {{ config()?.available_balance ?? 0 | number: '1.2-2' }} USD
-          </span>
         </div>
       </div>
 
       <p *ngIf="amountError()" class="text-xs text-red-500 -mt-3">{{ amountError() }}</p>
 
+      <div
+        class="grid grid-cols-2 laptop:grid-cols-4 rounded-lg border border-gray-200 overflow-hidden"
+      >
+        <div class="px-5 py-3.5">
+          <p class="text-xs text-gray-500">Wallet balance</p>
+          <p class="mt-1 text-lg font-semibold text-gray-900 tabular-nums">
+            {{ config()?.available_balance ?? 0 | number: '1.2-2' }}
+            <span class="text-xs font-medium">USD</span>
+          </p>
+        </div>
+        <div class="px-5 py-3.5">
+          <p class="text-xs text-gray-500">Recharge amount</p>
+          <p class="mt-1 text-lg font-semibold text-gray-900 tabular-nums">
+            {{ amount() | number: '1.2-2' }} <span class="text-xs font-medium">USD</span>
+          </p>
+        </div>
+        <div class="px-5 py-3.5">
+          <p class="text-xs text-gray-500">Creation fee</p>
+          <p class="mt-1 text-lg font-semibold text-gray-900 tabular-nums">
+            {{ config()?.creation_fee ?? 1 | number: '1.2-2' }}
+            <span class="text-xs font-medium">USD</span>
+          </p>
+        </div>
+        <div class="px-5 py-3.5 bg-red-50">
+          <p class="text-xs text-gray-500">Total to pay</p>
+          <p class="mt-1 text-xl font-bold text-red-600 tabular-nums">
+            {{ total() | number: '1.2-2' }} <span class="text-xs font-medium">USD</span>
+          </p>
+        </div>
+      </div>
+
       <div class="flex items-start gap-6">
-        <span class="text-gray-600 w-[80px]">Remark</span>
+        <span class="font-semibold text-gray-700 w-[80px]">Remark</span>
 
         <textarea
           placeholder="Please enter a note."
@@ -161,13 +185,16 @@
 
   <!-- CARD INFORMATION -->
   <div class="w-full shrink-0 rounded-xl bg-white border border-gray-200 flex flex-col">
-    <div class="px-5 py-4 border-b border-gray-200 font-semibold text-gray-700">
+    <h2
+      class="px-5 py-4 border-b border-gray-200 flex items-center gap-3 text-base font-bold text-gray-900"
+    >
+      <span class="w-1 h-5 rounded-full bg-red-600"></span>
       Card information
-    </div>
+    </h2>
 
     <div class="px-5 py-6 grid grid-cols-1 tablet:grid-cols-2 gap-x-5 gap-y-4">
       <div class="flex flex-col gap-1.5">
-        <label for="card-name" class="text-gray-600">Card name</label>
+        <label for="card-name" class="font-semibold text-gray-700">Card name</label>
         <input
           id="card-name"
           type="text"
@@ -181,7 +208,7 @@
       </div>
 
       <div class="flex flex-col gap-1.5">
-        <label for="holder-name" class="text-gray-600">Cardholder's full name</label>
+        <label for="holder-name" class="font-semibold text-gray-700">Cardholder's full name</label>
         <input
           id="holder-name"
           type="text"
@@ -201,7 +228,7 @@
       type="button"
       [disabled]="busy()"
       (click)="onSubmit()"
-      class="h-9 px-4 bg-red-600 text-white text-sm rounded hover:bg-red-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+      class="h-10 px-8 bg-red-600 text-white text-sm font-semibold rounded hover:bg-red-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
     >
       {{ busy() ? 'Processing...' : 'Confirm' }}
     </button>
