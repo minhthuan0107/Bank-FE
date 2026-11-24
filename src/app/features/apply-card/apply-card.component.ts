@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, computed, DestroyRef, effect, inject, signal, untracked } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { WalletService } from '../wallet/services/wallet.service';
 import { CardCreationStore } from '../wallet/stores/card-creation.store';
 import { CardCreationConfigResponse } from '../wallet/types/infini-card.type';
@@ -14,6 +15,7 @@ import { CardCreationConfigResponse } from '../wallet/types/infini-card.type';
 export class ApplyCardComponent {
   private walletService = inject(WalletService);
   private destroyRef = inject(DestroyRef);
+  private toast = inject(ToastrService);
   protected creation = inject(CardCreationStore);
 
   config = signal<CardCreationConfigResponse | null>(null);
@@ -37,14 +39,16 @@ export class ApplyCardComponent {
     return '';
   });
 
-  canSubmit = computed(
-    () =>
-      !this.busy() &&
-      !!this.config()?.can_create &&
-      !this.amountError() &&
-      !!this.cardName().trim() &&
-      !!this.holderName().trim(),
-  );
+  private validationError(): string {
+    if (!this.config()) return 'Card settings are not loaded yet.';
+    if (this.amountError()) return this.amountError();
+    if (!this.cardName().trim()) return 'Please enter the card name.';
+    if (!this.holderName().trim()) return "Please enter the cardholder's full name.";
+    if (!this.config()!.can_create) {
+      return 'Card creation is not available right now. Another card may still be in progress.';
+    }
+    return '';
+  }
 
   constructor() {
     this.creation.resume();
@@ -56,7 +60,14 @@ export class ApplyCardComponent {
   }
 
   onSubmit() {
-    if (!this.canSubmit()) return;
+    if (this.busy()) return;
+
+    const error = this.validationError();
+    if (error) {
+      this.toast.warning(error);
+      return;
+    }
+
     this.creation.submit({
       name: this.cardName().trim(),
       holderName: this.holderName().trim(),
