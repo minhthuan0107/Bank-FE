@@ -63,7 +63,10 @@ export interface InfiniCardPageResponse {
 // ===== Top-up / withdraw =====
 export type InfiniFundingAction = 'topup' | 'withdraw';
 
-export const INFINI_FUNDING_MIN_AMOUNT = 10;
+export const INFINI_TOP_UP_MIN = 10;
+export const INFINI_WITHDRAW_MIN = 0.01;
+/** Balance that must stay on the card after a withdrawal. */
+export const INFINI_MIN_CARD_BALANCE = 1;
 
 export interface InfiniFundingRequest {
   requestId: string;
@@ -77,4 +80,5 @@ export interface InfiniFundingResponse {
   card_id: number;
   amount: number;
   card_balance: number | null;
+  failure_reason?: 'TOP_UP_TOO_SMALL' | 'WITHDRAW_COOLDOWN' | null;
 }

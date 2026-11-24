@@ -6,7 +6,10 @@ import { finalize } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2';
 import { InfiniFundingFlow } from '../../../wallet/services/infini-card.service';
-import { INFINI_FUNDING_MIN_AMOUNT } from '../../../wallet/types/infini-card.type';
+import {
+  INFINI_MIN_CARD_BALANCE,
+  INFINI_WITHDRAW_MIN,
+} from '../../../wallet/types/infini-card.type';
 
 @Component({
   selector: 'app-widthdrawl-card-modal',
@@ -20,21 +23,27 @@ export class WidthdrawlCardModalComponent {
 
   protected inquiryUiStore = inject(InquiryUiStore);
 
-  readonly MIN_AMOUNT = INFINI_FUNDING_MIN_AMOUNT;
+  readonly MIN_AMOUNT = INFINI_WITHDRAW_MIN;
+  readonly MIN_CARD_BALANCE = INFINI_MIN_CARD_BALANCE;
 
   card = this.inquiryStore.selectedCard;
   currency = signal('USD');
-  transferAmount = signal(INFINI_FUNDING_MIN_AMOUNT);
+  transferAmount = signal(1);
   isLoading = signal(false);
 
   // The backend checks the real card balance at the provider before moving funds.
   cardBalance = computed(() => Number(this.card()?.remaining_amount ?? 0));
+  maxAmount = computed(() =>
+    Math.max(0, (Math.floor(this.cardBalance() * 100 + 1e-6) - this.MIN_CARD_BALANCE * 100) / 100),
+  );
 
   error = computed(() => {
     const amount = this.transferAmount();
-    if (amount < this.MIN_AMOUNT) return `Minimum amount is ${this.MIN_AMOUNT} USD`;
+    if (amount < this.MIN_AMOUNT) return 'Please enter an amount';
     if (!/^\d+(\.\d{1,2})?$/.test(String(amount))) return 'Use at most 2 decimal places';
-    if (amount > this.cardBalance()) return 'Insufficient card balance';
+    if (amount > this.maxAmount()) {
+      return `The card must keep at least ${this.MIN_CARD_BALANCE} USD (maximum ${this.maxAmount().toFixed(2)} USD)`;
+    }
     return '';
   });
   isInvalid = computed(() => !!this.error());
@@ -50,7 +59,11 @@ export class WidthdrawlCardModalComponent {
       .subscribe({
         next: (order) => {
           if (order.status === 'FAILED') {
-            this.showError('The withdrawal was rejected. No funds were moved.');
+            this.showError(
+              order.failure_reason === 'WITHDRAW_COOLDOWN'
+                ? 'Funds can be withdrawn 30 minutes after the last top-up. No funds were moved.'
+                : 'The withdrawal was rejected. No funds were moved.',
+            );
             return;
           }
           if (order.status === 'SUCCEEDED') {
@@ -62,8 +75,15 @@ export class WidthdrawlCardModalComponent {
           this.inquiryStore.fundingChanged.update((n) => n + 1);
           this.close();
         },
-        error: (err) =>
-          this.showError(err?.error?.message ?? 'Unable to reach the server. Please try again.'),
+        error: (err) => {
+          const message = err?.error?.message ?? 'Unable to reach the server. Please try again.';
+          const availableAt = err?.error?.data?.available_at;
+          this.showError(
+            availableAt
+              ? `${message} Available at ${new Date(availableAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}.`
+              : message,
+          );
+        },
       });
   }
 

@@ -29,6 +29,17 @@
         />
       </div>
 
+      <div class="flex justify-between items-center">
+        <span>Maximum transfer</span>
+        <button
+          type="button"
+          class="border rounded px-3 py-1 w-40 text-right text-red-600 hover:bg-red-50"
+          (click)="transferAmount.set(maxAmount())"
+        >
+          {{ maxAmount() | number: '1.2-2' }}
+        </button>
+      </div>
+
       <div class="flex flex-col gap-1">
         <div class="flex justify-between items-center">
           <span class="text-red-500">* Transferred amount</span>

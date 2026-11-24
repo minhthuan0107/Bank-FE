@@ -7,7 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 import { finalize } from 'rxjs/operators';
 import { WalletFacade } from '../../../wallet/facades/wallet.facade';
 import { InfiniFundingFlow } from '../../../wallet/services/infini-card.service';
-import { INFINI_FUNDING_MIN_AMOUNT } from '../../../wallet/types/infini-card.type';
+import { INFINI_TOP_UP_MIN } from '../../../wallet/types/infini-card.type';
 
 @Component({
   selector: 'app-top-up-modal',
@@ -22,12 +22,12 @@ export class TopUpModalComponent {
 
   protected inquiryUiStore = inject(InquiryUiStore);
 
-  readonly MIN_AMOUNT = INFINI_FUNDING_MIN_AMOUNT;
+  readonly MIN_AMOUNT = INFINI_TOP_UP_MIN;
 
   card = this.inquiryStore.selectedCard;
   walletBalance = signal<number | null>(null);
   currency = signal('USD');
-  rechargeAmount = signal(INFINI_FUNDING_MIN_AMOUNT);
+  rechargeAmount = signal(INFINI_TOP_UP_MIN);
   isLoading = signal(false);
 
   error = computed(() => {
@@ -58,7 +58,11 @@ export class TopUpModalComponent {
       .subscribe({
         next: (order) => {
           if (order.status === 'FAILED') {
-            this.showError('The top-up was rejected. No funds were moved.');
+            this.showError(
+              order.failure_reason === 'TOP_UP_TOO_SMALL'
+                ? 'The top-up amount is below the minimum allowed. No funds were moved.'
+                : 'The top-up was rejected. No funds were moved.',
+            );
             return;
           }
           if (order.status === 'SUCCEEDED') this.toast.success('Card topped up successfully.');
